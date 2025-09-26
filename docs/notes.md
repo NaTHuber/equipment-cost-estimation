@@ -38,10 +38,29 @@ contienen las siguientes columnas:
 - Date: fecha 
 - Price: precio de la materia prima en esa fecha 
 
-**Nota importante:** En los datos proporcionados no se cuenta con información sobre proveedores (precios por proveedor, condiciones de entrega, descuentos, garantías, etc), por lo que para esta primera versión no se trabajará en el segundo beneficio esperado, el cual trata sobre optimización de recursos.
+>**Nota importante:** En los datos proporcionados no se cuenta con información sobre proveedores (precios por proveedor, condiciones de entrega, descuentos, garantías, etc), por lo que para esta primera versión no se trabajará en el segundo beneficio esperado, el cual trata sobre optimización de recursos.
 
 ## 2. Supuestos 
 ### Información con la que cuento 
+Los datos disponibles para el análisis corresponden a los precios históricos de las materias primas X, Y y Z.
+
+No se cuenta con información sobre proveedores, condiciones de entrega, calidad de servicio ni costos adicionales de transporte o mantenimiento.
+
+### Relaciones de la composición de los equipos
+- El Equipo 1 se estima con base en un 20% del precio de la materia prima X y un 80% de la materia prima Y.
+
+- El Equipo 2 se compone en partes iguales de X, Y y Z (o sea, 33.3% cada una).
+
+### Horizonte de planeación 
+
+El proyecto tiene una duración de 36 meses. Se asume que los precios de las materias primas históricas pueden servir como base para proyectar o estimar los costos durante este horizonte. 
+
+### Factores externos que se excluyen 
+
+No se incorporan variables externas como inflación, disponibilidad de materias primas ni algún otro tipo de evento económico, aunque en un análisis real podrían tener un impacto significativo.
+
+> **Nota importante:** El objetivo/beneficio esperado es sobre la **precisión** en la estimación de costos, sin embargo en esta primera versión priorizaré construir una metodología clara y reproducible para la estimación de los costos que pueda servir como base. 
+
 ### ¿Qué significa estimar el costo en este problema? 
 ### Lista de supuestos 
 
