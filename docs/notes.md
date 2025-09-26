@@ -38,6 +38,8 @@ contienen las siguientes columnas:
 - Date: fecha 
 - Price: precio de la materia prima en esa fecha 
 
+**Nota importante:** En los datos proporcionados no se cuenta con información sobre proveedores (precios por proveedor, condiciones de entrega, descuentos, garantías, etc), por lo que para esta primera versión no se trabajará en el segundo beneficio esperado, el cual trata sobre optimización de recursos.
+
 ## 2. Supuestos 
 ### Información con la que cuento 
 ### ¿Qué significa estimar el costo en este problema? 
