@@ -61,8 +61,18 @@ No se incorporan variables externas como inflación, disponibilidad de materias 
 
 > **Nota importante:** El objetivo/beneficio esperado es sobre la **precisión** en la estimación de costos, sin embargo en esta primera versión priorizaré construir una metodología clara y reproducible para la estimación de los costos que pueda servir como base. 
 
-### ¿Qué significa estimar el costo en este problema? 
-### Lista de supuestos 
-
 ## 3. Posibles enfoques 
+
+### ¿Qué significa estimar el costo en este problema? 
+Para este caso estimar el costo significa **calcular un valor de referencia para cada uno de los equipos**, esto a partir de las materias primas que lo componen. La estimación se puede enetnder mediante el siguiente flujo:
+
+```mermaid 
+    graph LR 
+        A[Analizar los precios históricos]-->B[Definir un valor representativo]
+        B-->C[Aplicar las proporciones definidas en el caso]
+        C-->D[Obtener así un costo estimado]
+```
+
+# 4. Análisis exploratorio - Limpieza y preprocesamiento 
+
 
