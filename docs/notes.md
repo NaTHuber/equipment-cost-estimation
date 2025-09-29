@@ -86,14 +86,54 @@ Para esta parte del proyecto se llevará a cabo el siguiente esquema en código
 
 despues se va a calcular un **promedio por mes para poder comparar las series**
 
+**Ventana de referencia.** Se usa una ventana común de 12 meses para estimar el costo base por materia prima, por ser la más representativa del nivel actual y cubrir un ciclo anual completo.
+
 ## 5. Modelado / Estimación de costos
 
 En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar costos base de los equipos, bandas de incertidumbre y sensibilidad. Siguiendo el siguiente esquema en código
 
 ```mermaid
     graph LR
-        A[Cargar estadísticos de ventana común 12m]-->B[Extraer parámetros X, Y, Z]
-        B-->C[Cálculo de costos - Base y Bandas]
-        C-->D[Sensibilidad +/−10% por materia prima]
-        D-->E[Serie mensual de equipos - 12m comunes]
+        A[1 <br> Cargar estadísticos de ventana común 12m]-->B[ 2 <br>Extraer parámetros X, Y, Z]
+        B-->C[ 3 <br> Cálculo de costos - Base y Bandas]
+        C-->D[ 4 <br> Sensibilidad +/−10% por materia prima]
+        D-->E[ 5 <br> Serie mensual de equipos - 12m comunes]
 ```
+
+## 6. Resultados y conclusiones 
+
+|Equipo  |Base (media 12m)|Bajo (media±σ)|Alto (media±σ)|Bajo (P25)|Alto (P75)|
+|--------|----------------|--------------|--------------|----------|----------|
+|Equipo 1|25337.28        |17581.39      |33093.18      |19730.43  |30129.56  |
+|Equipo 2|11340.73        |8071.66       |14609.8       |8980.09   |13358.45  |
+
+
+
+|Escenario|Equipo 1 (abs)|Equipo 1 (Δ%)|Equipo 2 (abs)|Equipo 2 (Δ%)|
+|---------|--------------|-------------|--------------|-------------|
+|X +10%   |25338.95      |0.01         |11343.51      |0.02         |
+|Y +10%   |27869.34      |9.99         |12395.75      |9.3          |
+|Z +10%   |25337.28      |0.0          |11416.99      |0.67         |
+|X -10%   |25335.61      |-0.01        |11337.94      |-0.02        |
+|Y -10%   |22805.22      |-9.99        |10285.7       |-9.3         |
+|Z -10%   |25337.28      |0.0          |11264.46      |-0.67        |
+
+
+|Date    |Equipo 1|Equipo 2|
+|--------|--------|--------|
+|2022-09-01|32867.465|14460.506|
+|2022-10-01|38028.069|16615.898|
+|2022-11-01|25467.479|11412.458|
+|2022-12-01|12855.268|6173.348|
+|2023-01-01|25401.473|11432.162|
+|2023-02-01|27940.100|12468.179|
+|2023-03-01|29215.721|12956.227|
+|2023-04-01|19949.874|9111.056|
+|2023-05-01|19073.330|8723.340|
+|2023-06-01|25821.469|11504.603|
+|2023-07-01|33521.784|14704.787|
+|2023-08-01|13905.369|6526.187|
+
+
+
+## 7. Ideas para el futuro - ajustes y mejoras
