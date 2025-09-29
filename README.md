@@ -18,6 +18,24 @@ Una empresa constructora planifica un proyecto de 36 meses y requiere estimar el
 - **Equipo 1**: 20% materia prima X + 80% materia prima Y
 - **Equipo 2**: 33.3% materia prima X + 33.3% materia prima Y + 33.3% materia prima Z
 
+## Estructura de carpetas
+
+```
+.
+├───code
+│       01_eda.ipynb
+│       02_model.ipynb
+│
+├───data
+│   ├───clean
+│
+└───docs
+    │   notes.md
+    │   report.md
+    │
+    └───img
+```
+
 ## Metodología
 
 ### 1. Análisis Exploratorio
