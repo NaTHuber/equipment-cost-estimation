@@ -67,12 +67,33 @@ No se incorporan variables externas como inflación, disponibilidad de materias 
 Para este caso estimar el costo significa **calcular un valor de referencia para cada uno de los equipos**, esto a partir de las materias primas que lo componen. La estimación se puede enetnder mediante el siguiente flujo:
 
 ```mermaid 
-    graph LR 
+    graph LR
         A[Analizar los precios históricos]-->B[Definir un valor representativo]
         B-->C[Aplicar las proporciones definidas en el caso]
         C-->D[Obtener así un costo estimado]
 ```
 
-# 4. Análisis exploratorio - Limpieza y preprocesamiento 
+## 4. Análisis exploratorio - Limpieza y preprocesamiento 
 
+Para esta parte del proyecto se llevará a cabo el siguiente esquema en código
 
+```mermaid
+    graph LR
+        A[Cargar dataset]-->B[Parsear fechas y precios]
+        B-->C[Limpiar datos]
+        C-->D[Calculo de algunas métricas]
+```
+
+despues se va a calcular un **promedio por mes para poder comparar las series**
+
+## 5. Modelado / Estimación de costos
+
+En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar costos base de los equipos, bandas de incertidumbre y sensibilidad. Siguiendo el siguiente esquema en código
+
+```mermaid
+    graph LR
+        A[Cargar estadísticos de ventana común 12m]-->B[Extraer parámetros X, Y, Z]
+        B-->C[Cálculo de costos - Base y Bandas]
+        C-->D[Sensibilidad +/−10% por materia prima]
+        D-->E[Serie mensual de equipos - 12m comunes]
+```
