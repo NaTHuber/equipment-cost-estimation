@@ -88,7 +88,7 @@ despues se va a calcular un **promedio por mes para poder comparar las series**
 
 **Ventana de referencia.** Se usa una ventana común de 12 meses para estimar el costo base por materia prima, por ser la más representativa del nivel actual y cubrir un ciclo anual completo.
 
-## 5. Modelado / Estimación de costos
+## 5. Modelado - Estimación de costos
 
 En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar costos base de los equipos, bandas de incertidumbre y sensibilidad. Siguiendo el siguiente esquema en código
 
@@ -102,12 +102,23 @@ En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar co
 
 ## 6. Resultados y conclusiones 
 
+### Costos Base de los Equipos
+
 |Equipo  |Base (media 12m)|Bajo (media±σ)|Alto (media±σ)|Bajo (P25)|Alto (P75)|
 |--------|----------------|--------------|--------------|----------|----------|
 |Equipo 1|25337.28        |17581.39      |33093.18      |19730.43  |30129.56  |
 |Equipo 2|11340.73        |8071.66       |14609.8       |8980.09   |13358.45  |
 
+Se establece los costos base de los equipos como:
+- Equipo 1: **$25,337.28**
+- Equipo 2: **$11,340.73**
+### Bandas de Incertidumbre
+Las bandas te muestran el rango probable de variación. Tenemos que para el equipo 1 el valor alto(escenario pesimista) es de **$33,093.18**, mientras que el optimista es de **$17,581.39**, teniendo un rango de variación de **$15,511.79**, que representa el **61%** del costo base. También se calculó la banda P25–P75 que representa una banda más estreña y con respecto al precio base tiene un ancho de **41%**
+Por otro lado para el equipo 2 el valor alto(escenario pesimista) es de **$14,609.80**, mientras que el optimista es de **$8,071.66**, teniendo un rango de variación de **$6,538.14**, que representa el **58%** del costo base. Mientras que la banda P25-P75 es de un **39%** del costo base. 
 
+Teniendo así que ambos equipos tienen una incertidumbre considerable. El Equipo 1 es más volátil en términos absolutos, lo que significa que hay más riesgo financiero asociado con su compra.
+
+### Análisis de Sensibilidad: ¿Qué materia prima importa más?
 
 |Escenario|Equipo 1 (abs)|Equipo 1 (Δ%)|Equipo 2 (abs)|Equipo 2 (Δ%)|
 |---------|--------------|-------------|--------------|-------------|
@@ -118,7 +129,13 @@ En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar co
 |Y -10%   |22805.22      |-9.99        |10285.7       |-9.3         |
 |Z -10%   |25337.28      |0.0          |11264.46      |-0.67        |
 
+De acuerdo a estos resultados se infiere que la materia prima que más influye en los precios de ambos equipos es **Y** 
+- Equipo 1: un cambio del 10% en Y genera un cambio del ~10% en el costo total
+- Equipo 2: un cambio del 10% en Y genera un cambio del ~9.3% en el costo total
 
+### Tendencias Mensuales
+![equipo-1-tendencias-12m](img/equipo-1-tendencias-12m.png)
+![equipo-2-tendencias-12m](img/equipo-2-tendencias-12m.png)
 |Date    |Equipo 1|Equipo 2|
 |--------|--------|--------|
 |2022-09-01|32867.465|14460.506|
@@ -134,6 +151,20 @@ En esta sección se usó la ventana común de 12 meses (X, Y, Z) para estimar co
 |2023-07-01|33521.784|14704.787|
 |2023-08-01|13905.369|6526.187|
 
+De las tendencias mensuales que van de septiembre del 2022 a agosto de 2023 se observa que: 
+- Equipo 1
+    - Mínimo: $12,855.26 (diciembre 2022)
+    - Máximo: $38,028.07 (octubre 2022)
+    - Diferencia: casi 3 veces más caro en el peor momento
+- Equipo 2
+    - Mínimo: $6,173.35 (diciembre 2022)
+    - Máximo: $16,615.90 (octubre 2022)
+    - Diferencia: 2.7 veces más caro en el peor momento
 
+> Nota: Ambos equipos tuvieron picos en octubre 2022 y valles en diciembre 2022. Esto podría sugerir que existe alguna estacionalidad o evento externo que afecta a las tres materias primas simultáneamente.
 
 ## 7. Ideas para el futuro - ajustes y mejoras
+
+- Incorporar análisis de proveedores y optimización de recursos
+- Integrar variables macroeconómicas (inflación, disponibilidad)
+- Desarrollo de modelos predictivos avanzados
